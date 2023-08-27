@@ -1,0 +1,63 @@
+{% extends 'main/base.html' %}
+{% block content %}
+
+
+  <section class="projects">
+        <h2 class="display-6">My projects:</h2>
+        <hr class="fancy">
+        <div class="row mb-4">
+          <div class="col-md-10">
+            <p class="lead">
+              Here are listed all of my main projects simplistically, the detail
+              and list views are class-based ones using the Django framework which
+              I am a big fan of its simplicity and convenience for this small purpose. Enjoy :>>
+            </p>
+          </div>
+          <div class="col-md-2">
+            <a class="btn btn-secondary" href="{% url 'index' %}#projects" role="button"><h5>Back to home &raquo;</h5></a>
+          </div>
+        </div>
+
+        <div class="container-fluid">
+          <div class="row mb-4">
+            {% for project in projects %}
+            <div class="col-md-12 mb-8 mb-4">
+              <div class="card">
+                <a href="{% url 'project-detail' project.id %}">
+                <img src="{{ project.image.url }}" class="card-img-top" alt="Image loading">
+                </a>
+                <div class="card-body">
+                  <h4 class="card-title">
+                    <a href="{% url 'project-detail' project.id %}">
+                      {{ project.heading }}
+                    </a>
+                  </h4>
+                  <hr>
+                  {% if project.is_truncable %}
+                  <p class="card-text">
+                    {{ project.body|truncatechars:80 }}
+                  </p>
+                  {% else %}
+                  <p class="card-text">
+                    {{ project.body }}
+                  </p>
+                  {% endif %}
+                  <button
+                    type="button"
+                    class="btn btn-outline-secondary float-right"
+                  >
+                    Read more...
+                  </button>
+                </div>
+              </div>
+            </div>
+            {% endfor %}
+          </div>
+        </div>
+        <div class="container-fluid ml-4">
+          <a class="btn btn-secondary" href="{% url 'index' %}#projects" role="button" style="width:100%; text-align:center; margin-left:-25px;"><h5>Back to home &raquo;</h5></a>
+        </div>
+
+</section>
+
+{% endblock content %}

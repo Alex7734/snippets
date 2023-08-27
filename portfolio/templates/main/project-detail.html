@@ -1,0 +1,79 @@
+{% extends 'main/base.html'%}
+{% block content %}
+
+<style>
+
+  .center-column{
+    margin: 20px auto;
+    padding:20px;
+    background-color: #fff;
+    border-radius: 3px;
+    box-shadow: 6px 2px 30px 0px rgba(0,0,0,0.75);
+    word-wrap: break-word;
+    white-space: pre-line;
+    position: relative;
+  }
+
+  .lead{
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+    hyphens: auto; display: inline-block;
+    word-break: break-word;
+  }
+
+  .HOME{
+    position: absolute;
+    margin-left: 30px;
+    margin-bottom: 30px;
+    bottom: 0;
+    left: 0;
+  }
+
+  .INDEX{
+      position: absolute;
+      bottom: 0;
+      right: 0;
+      margin-right: 30px;
+      margin-bottom: 30px;
+  }
+
+  .card-img-top{
+    max-width:100%;
+    max-height:100%;
+    display: inline-block;
+  }
+
+</style>
+
+<div class="container">
+  <div class="center-column">
+
+    <div class="jumbotron" >
+      <h1 style="text-align:center;">{{post.heading}}</h1>
+    </div>
+
+    <p class="lead">
+      <small style="text-align: center;">Date: {{post.date_created}}</small>
+    </p>
+
+    <p class="lead">
+      {{post.body}}
+    </p>
+
+    <p>
+      <a href="{{post.link}}">Link</a> 
+    </p>
+
+    {% if post.image %}
+    <div class="portrait" style="margin-bottom:-30px;">
+      <img class="card-img-top" src="{{post.image.url}}">
+    </div>
+    {% endif %}
+
+      <a class="btn btn-secondary HOME" href="{% url 'projects' %}" role="button" style="font-size:16px;">Back to projects &raquo;</a>
+      <a class="btn btn-secondary INDEX" href="{% url 'index' %}#projects" role="button" style="font-size:16px;">&laquo Back to home</a>
+
+  </div>
+</div>
+
+{% endblock content %}

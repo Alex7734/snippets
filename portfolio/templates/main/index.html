@@ -1,0 +1,197 @@
+{% extends 'main/base.html' %}
+{% block content %}
+{% load crispy_forms_tags %}
+
+
+<div class="background"></div>
+<div class="intro-left">
+  <div class="container-fluid full-height">
+    <div class="row text-center align-items-center full-height">
+      <div class="col">
+        <img src="https://instagram.fotp3-2.fna.fbcdn.net/v/t51.2885-19/s320x320/31247633_228389847932656_2660094016321748992_n.jpg?_nc_ht=instagram.fotp3-2.fna.fbcdn.net&_nc_ohc=7b9OxHxTQaUAX8HSZKk&oh=9be9f2180dc5bcfccf005138ef4a49cf&oe=5F3DF3E0" alt="User avatar" class="avatar">
+        <p class="display-6" id="myName"><em>Alexandru Mihoc</em></p>
+        <p id="shortAboutMe"><em>Softwere & Design</em></p>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% if messages %}
+{% for message in messages %}
+
+<div class="altert alert-success" style="z-index:10000;">
+  <p class="lead" style="text-align: center;">{{message}}</p>
+</div>
+  <script type="text/javascript">
+    function confirmation(){
+    alert("The message was intercepted succesfuly! Thanks for your duty, soldier! ^-^")
+    }
+  </script>
+{% endfor %}
+{% endif %}
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-4"></div>
+    <div class="col-md-8 panel-right px-0">
+
+      <section class="intro" id="intro">
+        <h2 class="display-5 mb-4">Personal & self-designed Portfolio<br>
+        <small class="subtitle">Yes, you won't see this somewhere else</small></h2>
+
+      <p>
+        <em>Well if you can dream it you can do it, and I am for sure a big dreamer :3 all I learned along
+        the way on my own, from the first struggle to the last, never giving up was the key to all.
+        Even when the worst comes at you and you feel you can't complete it keep pushing yourself. There are tons of
+        information around there just waiting to be discovered. Be the one who does that and you shall
+        reward yourself only in this process.</em>
+     </p>
+
+      <p class="lead">
+        Built with Python-Django, PostgreSQL, CSS & HTML, Bootstrap 5, Heroku, AWS, sweat, and tears.
+        Here is the page where I put head to head all I learned in the past months in the form of a small packed
+        portfolio like the page where I can present elegantly a product of my work and knowledge I have gathered over the time
+        using nothing but sheer will, YouTube, Google, online documentation and StackOverflow.
+      </p>
+
+      </section>
+
+      <section class="projects" id="projects">
+        <h2 class="display-6 mb-5">My projects:</h2>
+        <div class="container-fluid">
+          <div class="row">
+            {% for project in projects %}
+            <div class="col-md-4 mb-3">
+              <div class="card">
+                <img src="{{ project.image.url }}" class="card-img-top" alt="Image loading">
+                <div class="card-body">
+                  <h4 class="card-title">
+                      {{ project.heading }}
+                  </h4>
+                  <hr>
+                  {% if project.is_truncable %}
+                  <p class="card-text">
+                    {{ project.body|truncatechars:50}}
+                  </p>
+                  {% else %}
+                  <p class="card-text">
+                    {{ project.body }}
+                  </p>
+                  {% endif %}
+                  <a
+                    type="button"
+                    class="btn btn-outline-secondary float-right"
+                    href="{% url 'project-detail' project.id %}"
+                  >
+                    Read more...
+                  </a>
+                </div>
+              </div>
+            </div>
+            {% endfor %}
+          </div>
+        </div>
+        <a href="{% url 'projects' %}" class="float-right mt-3 px-3">See more &raquo</a>
+      </section>
+
+      <section class="gallery">
+        <div class=headering>
+          <h2 class="display-6">My galery: <h2>
+            <small class="text-muted mb-4 smaling">(with me and my special one :3)</small>
+            <hr class="galery">
+        </div>
+        <div class="container-fluid">
+          <div class="row gy-5">
+            <div class="col-md-6">
+              <img
+                src="https://i.imgur.com/m2Kl3hR.jpg"
+                alt="Portfolio image"
+                class="img-fluid thumbnail nice"
+              />
+            </div>
+            <div class="col-md-6">
+              <img
+                src="https://i.imgur.com/5aU9EUu.jpg"
+                alt="Portfolio image"
+                class="img-fluid thumbnail nice"
+              />
+            </div>
+            <div class="col-md-6">
+              <img
+                src="https://i.imgur.com/VAgiiZg.jpg"
+                alt="Portfolio image"
+                class="img-fluid thumbnail nice"
+              />
+            </div>
+            <div class="col-md-6">
+              <img
+                src="https://i.imgur.com/uMKBcaq.jpg"
+                alt="Portfolio image"
+                class="img-fluid thumbnail nice"
+              />
+            </div>
+
+          </div>
+          <hr class="galery">
+        </div>
+
+      </section>
+
+      <section class="quote" style="margin-top:-20px;">
+        <figure>
+          <blockquote class="blockquote">
+            <p>
+              <em>Favourite Quote:<em><br>
+              “God is dead. God remains dead. And we have killed him. How shall we comfort ourselves, the murderers of all murderers?”
+            </p>
+          </blockquote>
+          <figcaption class="blockquote-footer">
+            Friedrich Nietzsche. <cite title="Source Title">1895</cite>
+          </figcaption>
+        </figure>
+      </section>
+
+      <form method="POST" class="contact" style="margin-bottom:5rem;" onsubmit="confirmation()">
+        {% csrf_token %}
+        <h2 class="display-6 mb-5" style="margin-left: 12px;">Contact me:</h2>
+
+        <div class="container-fluid">
+          <div class="row">
+            <div class="col-md-6">
+              <div class="mb-3">
+                {{contact.name|as_crispy_field}}
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="mb-3">
+                {{contact.email|as_crispy_field}}
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="container-fluid">
+          <div class="col-md-12">
+            <div class="mb-3">
+              {{contact.message|as_crispy_field}}
+            </div>
+          </div>
+        </div>
+          <div style="margin-right:30px;">
+            <button type="submit" class="btn btn-outline-dark float-right">
+              Send
+            </button>
+          </div>
+      </form>
+
+
+      <footer class="footer">
+        <div class="container-fluid text-center">
+          <span class="text-muted">
+            <p>&copy; 2020 Alex Mihoc, check out my other, older, <a href="http://alex-personal-website.herokuapp.com/" style="color:grey;"><u>website</u></a> as well!</p>
+        </div>
+      </footer>
+    </div>
+  </div>
+</div>
+
+{% endblock content %}

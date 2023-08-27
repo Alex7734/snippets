@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/css/bootstrap.min.css" integrity="sha384-r4NyP46KrjDleawBgD5tp8Y7UzmLA05oM1iAEQ17CSuDqnUK2+k9luXQOfXJCJ4I" crossorigin="anonymous">
+    <title>Alex-Portfolio</title>
+  </head>
+  <body>
+
+<style>
+
+  body,
+  html {
+    height: 100%;
+  }
+
+  body {
+    font-weight: 200;
+    font-size: 1.5rem;
+    color: #444;
+  }
+
+  .intro-left {
+    background: url(https://cdn.dribbble.com/users/2403926/screenshots/6650984/space-bg.png);
+    background-size: cover;
+    position: fixed;
+    left: 0;
+    width: 33.3333%;
+    height: 100%;
+    color: white;
+  }
+
+  @media (max-width: 768px) {
+    .intro-left {
+      background: url(https://i.imgur.com/wD5UKHW.png);
+      background-size: cover;
+      height: 40vh;
+      margin-bottom: 0;
+      position: relative;
+      width: 100%;
+      z-index: 100;
+    }
+    .intro{
+      margin-top: 30px;
+    }
+  }
+
+  .avatar {
+    width: 10rem;
+    height: 10rem;
+    border-radius: 50%;
+    margin: 1rem;
+  }
+
+  .full-height {
+    height: 100%;
+  }
+
+  .quote {
+    float: right;
+  }
+
+  section {
+    margin: 5rem;
+    font-size: 1.2 rem;
+  }
+
+  a {
+    color: #444;
+    text-decoration: none;
+  }
+
+  .footer {
+    background-color: #fff;
+    font-size: 1rem;
+    margin: 0;
+  }
+
+  .background {
+    background-color: #eee;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    position: fixed;
+    clip-path: polygon(36% 0, 95% 0, 65% 100%, 18% 100%);
+  }
+
+  .hedearing{
+    margin-bottom: 7rem;
+  }
+
+  img:hover{
+    box-shadow: 1px 1px 24px 10px grey;
+    transform: scale(1.1);
+    z-index: 10;
+  }
+
+  p {
+    font-family: 'Raleway', sans-serif;
+    font-weight: 400;
+  }
+
+  .display-4 {
+    font-family: 'Raleway', sans-serif;
+    font-weight: 700;
+  }
+
+  .display-5 {
+    font-family: 'Raleway', sans-serif;
+    font-weight: 600;
+  }
+
+  .display-6 {
+    font-family: 'Raleway', sans-serif;
+    font-weight: 500;
+  }
+
+  .small{
+      font-family: 'Raleway', sans-serif;
+      font-weight: 300;
+  }
+
+  .galery{
+    border-radius: 0.1px;
+    border: solid 1px black;
+  }
+
+  .margined{
+    margin-left: 1rem;
+    margin-right: 1rem;
+  }
+
+  .card{
+    box-shadow: 3px 3px 12px 5px rgba(100,9,183,1);
+  }
+
+  .smaling{
+    font-size:20px;
+    margin-bottom:20px;
+  }
+
+  .subtitle{
+    font-size:24px;
+    color:grey;
+  }
+
+  .fancy {
+    background-image: linear-gradient(to right, #F72585, #7209B7, #3A0CA3, #4361EE);
+    height: 3px;
+    border-radius: 5px;
+    border-top: 10px;
+}
+
+.INDEX{
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    margin-right: 30px;
+    margin-bottom: 30px;
+}
+
+</style>
+
+{% block content %}
+{% endblock content %}
+
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/js/bootstrap.min.js" integrity="sha384-oesi62hOLfzrys4LxRF63OJCXdXDipiYWBnvTl9Y9/TRlw5xlKIEHpNyvvDShgf/" crossorigin="anonymous"></script>
+  </body>
+</html>
