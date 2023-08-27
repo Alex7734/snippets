@@ -1,0 +1,188 @@
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
+
+    <title>Anexe - GIA</title>
+
+    <style>
+        body{
+            background-color: antiquewhite;
+        }
+
+        .swiper-container{
+            height: 40em;
+        }
+
+        @media only screen and (max-width: 600px){
+          .swiper-container{
+            height: 12em;
+        }
+
+        
+        }
+        .flexDisplay{
+            display: flex;
+            height: 90%;
+            width: 100%;
+        }
+
+        .image{
+            height: 100%;
+            width: 50%;
+        }
+
+        .image img{
+          max-height: 100%;
+          max-width: 100%;
+        }
+
+        .paragraf{
+            height: 100%;
+            width: 50%;
+            margin-left: 10px;
+        }
+
+        .boxContainer{
+            width: auto;
+            overflow: hidden;
+            display: flex;
+            justify-content: space-evenly;
+            flex-flow: wrap;
+            margin-bottom: 80px;
+        }
+
+        .boxContainer div{
+            height: 15em;
+            width: 15em;
+            margin: 0.5em;
+          }
+
+        .anexaImagine img{
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+        }
+        
+        .anexaImagine{
+          -webkit-transition: .4s ease-in-out opacity;
+          -moz-transition: .4s ease-in-out opacity;
+          -o-transition: .4s ease-in-out opacity;
+          transition: .4s ease-in-out opacity;
+        }
+
+        .anexaImagine:hover{
+          opacity: 0.7;
+        }
+
+        .myDIV:hover + .hide {
+          display: block;
+        }
+
+        .text-anexa{
+          color:white; 
+          font-size: 2em; 
+          font-weight: 700; 
+          text-shadow: 2px 2px 2px 2px;
+        }
+
+        .text-anexa-small{
+          color:white; 
+          font-weight: 600; 
+          text-shadow: 2px 2px 2px 2px;
+        }
+
+        .anexaImagine > small {
+            visibility: hidden;
+        }
+        .anexaImagine:hover > small {
+            visibility: visible;
+        }
+
+
+        .anexaImagine > a {
+            visibility: hidden;
+        }
+        .anexaImagine:hover > a {
+            visibility: visible;
+        }
+
+        .anexaImagine{
+          display: flex;
+          justify-content: center;
+          text-align: center;
+          align-items: center;
+          flex-direction: column;
+          box-shadow: 10px 10px 10px #aaaaaa;
+          transition: 0.5s;
+        }
+
+    </style>
+
+
+</head>
+<body>
+    {% include 'navbar.html' %}
+
+    <div class="slideAnexe">
+        <div class="swiper-container">
+            <div class="swiper-wrapper">
+              {% for anexa in anexe %}
+              <div class="swiper-slide flexDisplay">
+                  <div class="image">
+                    <img src="{{anexa.thumbnail.url}}">
+                  </div>
+                  <div class="paragraf">
+                    <h1>
+                      {{anexa.name}}
+                    </h1>
+                    <small>{{anexa.price}} RON | {{anexa.getPriceEUR}} EUR</small>
+                    <p class="lead d-none d-sm-block">
+                      {{anexa.small_body}}
+                    </p>
+                    <p>
+                      <a class="btn btn-secondary" href="{% url 'detail-anexa' anexa.slug %}">Detalii</a>
+                    </p>
+                  </div>
+              </div>
+              {% endfor %}
+            </div>
+            <!-- Add Arrows -->
+            <div class="swiper-button-next"></div>
+            <div class="swiper-button-prev"></div>
+          </div>
+    </div>
+    <div class="boxContainer">
+      {% for anexa in anexe %}
+        <div class="anexaSmall">
+          <div class="anexaImagine" style="background-image: url('{{anexa.thumbnail.url}}'); background-size: cover;">
+            <small class="hide text-anexa-small">{{anexa.price}} RON</small>
+            <p class="text-anexa">{{anexa.name}}</p>
+            <a class="btn btn-secondary" href="{% url 'detail-anexa' anexa.slug %}">Detalii</a>
+          </div>
+        </div>
+      {% endfor %}
+    </div>
+
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+
+    <script>
+        var swiper = new Swiper('.swiper-container', {
+          pagination: {
+            el: '.swiper-pagination',
+            type: 'fraction',
+
+          },
+          navigation: {
+            nextEl: '.swiper-button-next',
+            prevEl: '.swiper-button-prev',
+          },
+        });
+    </script>
+
+</body>
+</html>

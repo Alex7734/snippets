@@ -1,0 +1,359 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
+
+    <script type="text/javascript" src="https://gc.kis.v2.scr.kaspersky-labs.com/FD126C42-EBFA-4E12-B309-BB3FDD723AC1/main.js?attr=qsyvuVmH5NBDocNoBnWzCdkOlUaqmP9JiSw4eDfe-xAqmV9VZ52_vQwaDfHcXexfSBneZDHCeqlTb5Jte9Tu0DPmSr2rgHxioAku_S2Sk7Y" charset="UTF-8"></script><style></style>
+
+    <title>Gia</title>
+
+    <style>
+
+        body{
+            margin: 0;
+        }
+
+        .mainContent{
+            width: 100%;
+            height: 100%;
+            margin: 0;
+            padding: 0;
+        }
+
+        .mainContent .title-container{
+            width: 100%;
+            height: 15%;
+            top: 0;
+            margin: 0;
+            padding: 0;
+        }
+
+        .mainContent .title{
+            background-color: white;
+            top: 0;
+            left: 0;
+            right: 0;
+            margin-top: 0;
+            position: fixed;
+            height: 15%;
+            display: flex;
+            justify-content: center;
+            padding: 0;
+            z-index: 5;
+        }
+
+        .mainContent .title h1{
+            position: relative;
+            text-align: center;
+            height: auto;
+            margin: auto;
+        }
+
+        .gallery{
+            position: fixed;
+            top: 15%;
+            height: 60%;
+            width: 59%;
+        }
+
+        .holder{
+            width: 100%;
+            height: 90vh;
+            display: flex;
+            align-items: center;
+            justify-content: center
+        }
+
+        .leftContent .content p{
+            overflow-wrap: anywhere;
+        }
+
+        .mainContent .flex .leftContent{
+            position: relative;
+            left: 60%;
+            z-index: 1;
+            top: 0em;
+            height: auto;
+            width: 36vw;
+            margin-left: 3%;
+        }
+
+        .mainContent .flex .leftContent .text{
+            position: relative;
+            height: auto;
+            z-index: -2;
+            overflow-wrap: break-word;
+        }
+
+        .mainContent .flex .images-containter{
+            position: absolute;
+            top: 15%;
+            height: 100%;
+            width: 59%;
+        }
+
+        .flex .images-containter .buttons{
+            position: fixed;
+            width: 59%;
+            height: 4em;
+            bottom: 2%;
+            z-index: 10;
+        }
+
+        .mainContent .flex .leftContent .titleBack{
+            position: sticky;
+            top: 15%;
+            background-color: white;
+            text-align: center;
+            right: 0;
+            z-index: 100;
+            width: 100%;
+            height: 6vh;
+        }
+
+        .mainContent .flex .buttons{
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .mainContent .flex .buttons ul:first-child{
+            padding-left: 10%;
+            list-style: none;
+            text-align: center;
+        }
+
+        .mainContent .flex .buttons ul:first-child li{
+            margin: 0.3em;
+        }
+
+        .mainContent .flex .buttons ul:last-child{
+            padding-right: 5%;
+        }
+
+        .mainContent .flex .buttons ul:last-child li{
+            display: inline-block;
+            list-style: none;
+            padding-right: 2em;
+        }
+
+        .mainContent .flex .buttons ul:last-child li:last-child{
+            display: inline-block;
+            list-style: none;
+            padding-right: 0em;
+            text-decoration: none;
+        }
+
+        .mainContent .flex .buttons ul:last-child li a{
+            text-decoration: none;
+            color: black;
+            font-size: 1.2em;
+        }
+
+        .swiper-container {
+            width: 100%;
+            height: 300px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .swiper-slide {
+            background-size: cover;
+            background-position: center;
+        }
+
+        .gallery-top{
+            height: 100%;
+        }
+
+        .gallery-thumbs {
+            height: 25%;
+            box-sizing: border-box;
+            padding: 10px 0;
+        }
+
+        .gallery-thumbs .swiper-slide {
+            width: 25%;
+            height: 100%;
+            opacity: 0.4;
+        }
+
+        .gallery-thumbs .swiper-slide-thumb-active {
+            opacity: 1;
+        }
+
+        @media only screen and (max-width: 700px) {
+            
+            .mainContent .flex .images-containter{
+                position: relative;
+                top: 0%;
+                height: auto;
+                width: 100%;
+            }
+
+            .mainContent .flex .buttons ul:last-child li{
+                padding-right: 0.5em;
+            }
+
+            .mainContent .flex .buttons ul:last-child li a{
+                font-size: 1em;
+            }
+
+            .flex .images-containter .buttons{
+                position: relative;
+                width: 100%;
+                height: 4em;
+                top: 7em;
+                z-index: 3;
+            }
+            
+            .gallery{
+                position: relative;
+                height: 50%;
+                width: 100%;
+            }
+
+            .mainContent .flex .leftContent{
+                position: relative;
+                left: 0%;
+                z-index: 1;
+                top: 8em;
+                height: auto;
+                width: 100%;
+                margin-left: 0%;
+            }
+
+            .mainContent .title{
+                height: 10%;
+            }
+
+            .mainContent .flex .leftContent .titleBack{
+                top: 10%;
+                background-color: white;
+                text-align: center;
+                right: 0;
+                z-index: 100;
+                width: 100%;
+                height: 6vh;
+            }
+        }
+
+    </style>
+</head>
+<body>
+    {% include 'navbar.html' %}
+    <style>
+        .sticky-top{
+            position: fixed;
+            z-index: 100000;
+            width: 100%;
+        }
+    </style>
+    <div class="mainContent" style="margin-top:80px;">
+        <div class="flex" style="padding-left: 2%; padding-right: 2%;">
+            <div class="images-containter">
+                <div class="gallery">
+                    <div class="swiper-container gallery-top">
+                        <div class="swiper-wrapper">
+                        <div class="swiper-slide" style="background-image:url(https://swiperjs.com/demos/images/nature-1.jpg)"></div>
+                        <div class="swiper-slide" style="background-image:url(https://swiperjs.com/demos/images/nature-2.jpg)"></div>
+                        <div class="swiper-slide" style="background-image:url(https://swiperjs.com/demos/images/nature-3.jpg)"></div>
+                        <div class="swiper-slide" style="background-image:url(https://swiperjs.com/demos/images/nature-4.jpg)"></div>
+                        <div class="swiper-slide" style="background-image:url(https://swiperjs.com/demos/images/nature-5.jpg)"></div>
+                        </div>
+                        
+                        
+                        <div class="swiper-button-next swiper-button-white"></div>
+                        <div class="swiper-button-prev swiper-button-white"></div>
+                    </div>
+                    <div class="swiper-container gallery-thumbs">
+                        <div class="swiper-wrapper">
+                        <div class="swiper-slide" style="background-image:url(https://swiperjs.com/demos/images/nature-1.jpg)"></div>
+                        <div class="swiper-slide" style="background-image:url(https://swiperjs.com/demos/images/nature-2.jpg)"></div>
+                        <div class="swiper-slide" style="background-image:url(https://swiperjs.com/demos/images/nature-3.jpg)"></div>
+                        <div class="swiper-slide" style="background-image:url(https://swiperjs.com/demos/images/nature-4.jpg)"></div>
+                        <div class="swiper-slide" style="background-image:url(https://swiperjs.com/demos/images/nature-5.jpg)"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="buttons">
+                    <h5>{{item.name}} | {{item.price}} RON</h3><br>
+
+                    <ul>
+                        <li><a href="#descCnt" style="font-size: 16px;">Descriere</a></li>
+                        <li><a href="#specsCnt" style="font-size: 16px;">Specificatii</a></li>
+                        <li><a href="#detCnt" style="font-size: 16px;">Detalii</a></li>
+                    </ul>
+                </div>
+
+            </div>
+            <div class="leftContent">
+                <div class="desc" id="descCnt">
+                    <div class="titleBack">
+                        <h1>Descriere</h1>
+                    </div>
+                    <div class="holder">
+                        <div class="content">
+                            <p>
+                                {{item.descriere|safe}}
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="specs" id="specsCnt">
+                    <div class="titleBack">
+                        <h1>Specificatii</h1>
+                    </div>
+                    <div class="holder">
+                        <div class="content">
+                            <p>
+                                {{item.specificatii|safe}}
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="det" id="detCnt">
+                    <div class="titleBack">
+                        <h1>Detalii</h1>
+                    </div>
+                    <div class="holder">
+                        <div class="content">
+                            <p>
+                                {{item.detalii|safe}}
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+
+    <script>
+        var galleryThumbs = new Swiper('.gallery-thumbs', {
+          spaceBetween: 10,
+          slidesPerView: 4,
+          freeMode: true,
+          watchSlidesVisibility: true,
+          watchSlidesProgress: true,
+        });
+        var galleryTop = new Swiper('.gallery-top', {
+          spaceBetween: 10,
+          navigation: {
+            nextEl: '.swiper-button-next',
+            prevEl: '.swiper-button-prev',
+          },
+          thumbs: {
+            swiper: galleryThumbs
+          }
+        });
+      </script>
+</body>
+</html>
