@@ -1,0 +1,18 @@
+{
+  "assets": [
+    {
+      "assetId": null,
+      "base64": null,
+      "duration": null,
+      "exif": null,
+      "fileName": null,
+      "fileSize": 231926,
+      "height": 604,
+      "type": "image",
+      "uri": "file:///var/mobile/Containers/Data/Application/5834AD5B-4E68-4E94-B03D-68F6EF9FC9BC/Library/Caches/ExponentExperienceData/%2540anonymous%252FStickerSmash-7522d5ec-dec4-4e24-b343-b14fa03776a3/ImagePicker/0CA5E420-24EA-47FC-94F3-84F527F88ABA.jpg",
+      "width": 603
+    }
+  ],
+  "canceled": false,
+  "cancelled": false
+}
