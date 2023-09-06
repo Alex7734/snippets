@@ -1,0 +1,63 @@
+import LoadingScreen from "../ui/core/components/loading-screen";
+import {router, Stack, useSegments, useNavigation} from "expo-router";
+import * as SplashScreen from "expo-splash-screen";
+import { useEffect, useState } from "react";
+import {TokenType} from "../auth/utils";
+import useAuthStore from "../auth/auth-store";
+
+SplashScreen.preventAutoHideAsync();
+
+const AppLayout = () => {
+  const navigation = useNavigation();
+
+  function useProtectedRoute(token: TokenType | null): void {
+    const segments = useSegments();
+
+    useEffect(() => {
+      const inAuthGroup = segments[0] === '(auth)';
+
+      console.debug('inAuthGroup', inAuthGroup)
+      console.debug('token',token)
+
+      if (!navigation) {
+        return
+      }
+      if (!token && !inAuthGroup) {
+        router.replace('/sign-in');
+      } else if (token && inAuthGroup) {
+        router.replace('/');
+      }
+    }, [token, segments]);
+  }
+
+  const [appIsReady, setAppIsReady] = useState(false);
+  useEffect(() => {
+    async function prepare() {
+      try {
+        // Pre-load fonts, make any API calls you need to do here before your app loads up.
+
+        // Artificially delay for two seconds to simulate a slow loading
+        // experience. Please remove this if you do not want any extra delays
+        await new Promise((resolve) => setTimeout(resolve, 1000));
+      } catch (e) {
+        console.warn(e);
+      } finally {
+        // Tell the application to render
+        setAppIsReady(true);
+      }
+    }
+
+    prepare();
+  }, []);
+
+  const { token, signIn, signOut } = useAuthStore();
+  useProtectedRoute(token);
+
+  return (
+    <>
+      {!appIsReady ? <LoadingScreen /> : <Stack screenOptions={{headerShown: false}} />}
+    </>
+  );
+};
+
+export default AppLayout;
