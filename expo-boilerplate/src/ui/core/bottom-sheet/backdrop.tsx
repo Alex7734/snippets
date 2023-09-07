@@ -13,14 +13,11 @@ const CustomBackdrop = ({ style }: BottomSheetBackdropProps) => {
       onPress={() => close()}
       entering={FadeIn.duration(50)}
       exiting={FadeOut.duration(20)}
-      // eslint-disable-next-line react-native/no-inline-styles
       style={[style, { backgroundColor: 'rgba(0, 0, 0, 0.4)' }]}
     />
   );
 };
 
-export const renderBackdrop = (props: BottomSheetBackdropProps) => (
-  <CustomBackdrop {...props} />
-);
+export const renderBackdrop = (props: BottomSheetBackdropProps) => <CustomBackdrop {...props} />;
 
 export default CustomBackdrop;
